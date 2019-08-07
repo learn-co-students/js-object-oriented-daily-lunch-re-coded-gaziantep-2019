@@ -1,5 +1,4 @@
 let store = { neighborhoods: [], meals: [], customers: [], deliveries: [] };
-
 const Neighborhood = (() => {
   let neighborhoodIds = 1;
   return class {
@@ -23,7 +22,8 @@ const Neighborhood = (() => {
       return store.deliveries.filter(delivery => delivery.neighborhoodId === this.id);
     }
   };
-})();
+})
+();
 
 const Meal = (() => {
   let mealIds = 1;
@@ -48,7 +48,8 @@ const Meal = (() => {
       return store.meals.sort((a, b) => a.price < b.price);
     }
   };
-})();
+})
+();
 
 const Customer = (() => {
   let customerIds = 1;
@@ -71,8 +72,10 @@ const Customer = (() => {
     totalSpent() {
       return this.meals().reduce((total, meal) => (total += meal.price), 0);
     }
+    
   };
-})();
+})
+();
 
 const Delivery = (() => {
   let deliveryIds = 1;
@@ -97,4 +100,5 @@ const Delivery = (() => {
       return store.customers.find(customer => customer.id === this.customerId);
     }
   };
-})();
+})
+();
